@@ -1,0 +1,664 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #f4f5f7;
+  --primary: #2d3436;
+  --accent: #e17055;
+  --card-bg: #ffffff;
+  --text-muted: #8a94a0;
+  --app-width: 430px;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: #d5d8dd;
+  display: flex;
+  justify-content: center;
+}
+
+/* قاب اصلی با عرض ثابت موبایلی روی همه دستگاه‌ها */
+.app {
+  width: var(--app-width);
+  max-width: 100%;
+  min-height: 100vh;
+  background: var(--bg);
+  position: relative;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+header {
+  text-align: center;
+  padding: 28px 20px 18px;
+  background: var(--card-bg);
+}
+header h1 {
+  font-size: 1.4rem;
+  color: var(--primary);
+}
+header p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
+
+/* نوار دسته‌بندی افقی */
+.categories-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #eaecef;
+  scrollbar-width: none;
+}
+.categories-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.cat-btn {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 16px;
+  border: none;
+  border-radius: 30px;
+  background: #fff;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+.cat-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  transition: 0.3s;
+}
+.cat-btn.active {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(225, 112, 85, 0.4);
+}
+
+/* بخش‌های دسته‌بندی پشت سر هم */
+.menu-container {
+  padding: 18px 16px 60px;
+}
+
+.category-section {
+  padding-top: 14px;
+  scroll-margin-top: 70px;
+}
+.section-title {
+  font-size: 1.15rem;
+  color: var(--primary);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--accent);
+}
+
+/* کارت آیتم */
+.menu-item {
+  display: flex;
+  gap: 14px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 12px;
+  margin-bottom: 14px;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  animation: fadeUp 0.5s ease both;
+}
+.menu-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.item-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex: 0 0 auto;
+  background: #eee;
+}
+
+.item-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.item-body h3 {
+  font-size: 1rem;
+  color: var(--primary);
+  margin-bottom: 5px;
+}
+
+/* توضیحات: حداکثر دو خط، در صورت سرریز انیمیشن پیمایش */
+.desc-wrap {
+  height: 2.6em;
+  line-height: 1.3em;
+  overflow: hidden;
+  position: relative;
+}
+.desc-text {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.desc-wrap.scrolling .desc-text {
+  animation: scrollText 8s linear infinite;
+}
+@keyframes scrollText {
+  0%,
+  15% {
+    transform: translateY(0);
+  }
+  85%,
+  100% {
+    transform: translateY(var(--shift));
+  }
+}
+
+.price {
+  margin-top: auto;
+  align-self: flex-start;
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 0.95rem;
+  padding-top: 6px;
+}
+/* شمارنده یادداشت در هدر */
+.notes-badge {
+  position: absolute;
+  top: 22px;
+  left: 18px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--accent);
+  color: #fff;
+  padding: 6px 11px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  box-shadow: 0 4px 10px rgba(225, 112, 85, 0.35);
+}
+.notes-badge svg {
+  width: 15px;
+  height: 15px;
+  fill: #fff;
+}
+
+.menu-item {
+  cursor: pointer;
+}
+
+/* پاپ‌آپ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  z-index: 200;
+}
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 20px;
+  width: var(--app-width);
+  max-width: 100%;
+  background: var(--card-bg);
+  border-radius: 22px 22px 0 0;
+  padding: 18px;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.modal-overlay.open .modal {
+  transform: translateY(0);
+}
+
+.modal-handle {
+  width: 44px;
+  height: 5px;
+  background: #dfe2e7;
+  border-radius: 3px;
+  margin: 0 auto 14px;
+}
+.modal-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+  background: #eee;
+}
+.modal h3 {
+  font-size: 1.3rem;
+  color: var(--primary);
+  margin: 16px 0 8px;
+  width: 100%;
+}
+.modal-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.modal-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 16px 0;
+  width: 100%;
+}
+.add-btn {
+  width: 100%;
+  flex-grow: 1;
+  padding: 15px;
+  border: none;
+  border-radius: 14px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.3s ease;
+}
+.add-btn:active {
+  transform: scale(0.97);
+}
+.add-btn.added {
+  background: #00b894;
+}
+/* دکمه شناور سبد */
+.fab {
+  position: fixed;
+  bottom: 22px;
+  right: calc(50% - var(--app-width) / 2 + 18px);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(225, 112, 85, 0.45);
+  z-index: 150;
+  transition: transform 0.2s ease;
+}
+.fab:active {
+  transform: scale(0.92);
+}
+.fab svg {
+  width: 26px;
+  height: 26px;
+  fill: #fff;
+}
+.fab-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #2d3436;
+  color: #fff;
+  font-size: 0.72rem;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+}
+
+/* پاپ‌آپ سبد */
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  z-index: 210;
+}
+.cart-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-sheet {
+  width: var(--app-width);
+  max-width: 100%;
+  max-height: 80vh;
+  background: var(--card-bg);
+  border-radius: 22px 22px 0 0;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cart-overlay.open .cart-sheet {
+  transform: translateY(0);
+}
+
+.cart-sheet h2 {
+  font-size: 1.2rem;
+  color: var(--primary);
+  margin-bottom: 14px;
+  text-align: center;
+}
+.cart-list {
+  overflow-y: auto;
+  flex: 1;
+  margin-bottom: 14px;
+}
+.cart-empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 30px 0;
+  font-size: 0.9rem;
+}
+.cart-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+.cart-row img {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: #eee;
+}
+.cart-info {
+  flex: 1;
+}
+.cart-info .name {
+  font-size: 0.92rem;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+.cart-info .price {
+  font-size: 0.82rem;
+  color: var(--accent);
+}
+.qty-ctrl {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.qty-ctrl button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.qty-ctrl span {
+  min-width: 18px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
+  padding: 12px 0;
+  border-top: 2px solid #eee;
+}
+.cart-total span:last-child {
+  color: var(--accent);
+}
+.checkout-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 14px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.checkout-btn:active {
+  transform: scale(0.97);
+}
+.checkout-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+/* صفحه لودینگ */
+.ai-thinking span {
+  width: 10px;
+  height: 10px;
+  background: #6366f1;
+  animation: waveDots 1.2s infinite;
+}
+/* HTML: <div class="loader"></div> */
+.loader-dots {    
+  --r1: 154%;
+  --r2: 68.5%;
+  width: 60px;
+  aspect-ratio: 1;
+  border-radius: 50%; 
+  background:
+    radial-gradient(var(--r1) var(--r2) at top   ,#0000 79.5%,#269af2 80%),
+    radial-gradient(var(--r1) var(--r2) at bottom,#269af2 79.5%,#0000 80%),
+    radial-gradient(var(--r1) var(--r2) at top   ,#0000 79.5%,#269af2 80%),
+    #ccc;
+  background-size: 50.5% 220%;
+  background-position: -100% 0%,0% 0%,100% 0%;
+  background-repeat:no-repeat;
+  animation: l9 2s infinite linear;
+}
+@keyframes l9 {
+    33%  {background-position:    0% 33% ,100% 33% ,200% 33% }
+    66%  {background-position: -100%  66%,0%   66% ,100% 66% }
+    100% {background-position:    0% 100%,100% 100%,200% 100%}
+}
+.loader-wrapper {
+  position: fixed;
+  inset: 0;
+  background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  z-index: 999;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.loader-wrapper.hide {
+  opacity: 0;
+  transform: translateY(-40px);
+  pointer-events: none;
+}
+.loader-logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary);
+  opacity: 0;
+  animation: loaderFadeUp 0.8s ease forwards;
+}
+.loader-ring {
+  width: 52px;
+  height: 52px;
+  border: 4px solid rgba(225, 112, 85, 0.2);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation:
+    spin 0.9s linear infinite,
+    loaderFadeUp 0.8s ease forwards;
+}
+.loader-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  opacity: 0;
+  animation: loaderFadeUp 0.8s ease 0.2s forwards;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loaderFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.modal-qty {
+  justify-content: center;
+  margin: 14px 0;
+}
+.modal-qty span {
+  min-width: 28px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+.modal-addons {
+  /* display: none; */
+  height: 0;
+  margin: 14px 0 4px;
+  overflow: hidden;
+}
+
+.modal-addons.show {
+  height: fit-content;
+  transition: height 2s ease;
+}
+.addons-title {
+  font-size: 14px;
+  margin: 0 0 10px;
+  text-align: right;
+  font-weight: 600;
+}
+.addons-row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+@media only screen and (min-width: 767px) {
+  .addons-row {
+    scrollbar-width: none;
+  }
+}
+.addons-row::-webkit-scrollbar {
+  display: none;
+}
+
+.addon-card {
+  flex: 0 0 auto;
+  width: 92px;
+  padding: 8px;
+  border: 2px solid #ececec;
+  border-radius: 14px;
+  background: #fff;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    transform 0.15s,
+    box-shadow 0.2s;
+}
+.addon-card:active {
+  transform: scale(0.97);
+}
+.addon-card.selected {
+  border-color: var(--accent, #c8956b);
+  box-shadow: 0 4px 14px rgba(200, 149, 107, 0.25);
+}
+.addon-card img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.addon-name {
+  font-size: 12px;
+  margin: 6px 0 2px;
+}
+.addon-price {
+  font-size: 11px;
+  color: #888;
+}
+
+/* حالت غیرفعال دکمه تا وقتی افزودنی انتخاب نشده */
+.add-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}

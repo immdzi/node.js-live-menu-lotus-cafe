@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>منوی کافه رستوران لوتوس</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./fonts/style.css" />
+  </head>
+  <body>
+    <div class="loader-wrapper" id="loader">
+      <div class="loader-logo">☕ کافه</div>
+      <div class="loader-dots"></div>
+      <div class="loader-text">در حال آماده‌سازی منو...</div>
+    </div>
+
+    <div class="app">
+      <header>
+        <h1>کافه رستوران لوتوس</h1>
+        <p>طعم‌های ناب، تجربه‌ای مینیمال</p>
+        <div class="notes-badge" id="notesBadge">
+          <svg viewBox="0 0 24 24">
+            <path d="M17 3H7a2 2 0 0 0-2 2v16l7-3 7 3V5a2 2 0 0 0-2-2z" />
+          </svg>
+          <span id="notesCount">0</span>
+        </div>
+      </header>
+
+      <nav class="categories-nav" id="catNav"></nav>
+
+      <div class="menu-container" id="menuContainer"></div>
+      <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modal">
+          <div class="modal-handle"></div>
+          <img class="modal-img" id="mImg" src="" alt="" />
+          <h3 id="mName"></h3>
+          <p class="modal-desc" id="mDesc"></p>
+          <div class="modal-price" id="mPrice"></div>
+
+          <!-- مرحله انتخاب افزودنی -->
+          <div class="modal-addons" id="mAddons">
+            <h4 class="addons-title">یک افزودنی انتخاب کنید</h4>
+            <div class="addons-row" id="addonsRow"></div>
+          </div>
+
+          <button class="add-btn" id="mAdd">افزودن به سبد خرید</button>
+        </div>
+      </div>
+
+      <button class="fab" id="cartFab">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.2 14.6l.9-1.6h7.5c.7 0 1.3-.4 1.7-1l3.9-7-1.7-1-3.9 7H8.5L4.3 2H1v2h2l3.6 7.6-1.4 2.5c-.7 1.3.2 2.9 1.8 2.9h12v-2H7.4c-.1 0-.2-.1-.2-.2z"
+          />
+        </svg>
+        <span class="fab-count" id="fabCount">0</span>
+      </button>
+
+      <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-sheet">
+          <h2>سبد سفارش شما</h2>
+          <div class="cart-list" id="cartList"></div>
+          <div class="cart-total">
+            <span>مجموع کل</span>
+            <span id="cartTotal">0 تومان</span>
+          </div>
+          <button class="checkout-btn" id="checkoutBtn">نهایی کردن خرید</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
+<!-- ادامه پرامپت های آپدیت -->
+<!-- برای این منو یک پنل کاربری ادمین میخوام اضافه کنم برای مدیریت آیتم های منو. اضافه کردن،کم کردن و ویرایش کردن ایتم ها. در قسمت ویرایش آیتم ها هم میخوام فیلد های زیر وجود داشته باشه : 
+نام، توضیحات، قیمت، گالری عکس، محدودیت های سفارش، افزودنی های آیتم ها (مثل سیروپ، عسل، نوتلا، طعم دهنده و...)، انتخاب دسته بندی اون آیتم.
+
+برای مدیریت دسته بندی ها هم دقیقا همون آپشن و متا باکس های بالا رو میخوام به غیر از  محدودیت های سفارش، افزودنی های آیتم ها (مثل سیروپ، عسل، نوتلا، طعم دهنده و...)، انتخاب دسته بندی. به جای گالری عکس هم فقط یک عکس شاخص داشته باشه.  -->

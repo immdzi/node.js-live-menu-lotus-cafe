@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ویرایش آیتم - پنل مدیریت</title>
+    <link rel="stylesheet" href="./admin-edit.css" />
+    <link rel="stylesheet" href="./fonts/style.css" />
+  </head>
+  <body>
+    <div id="app" class="edit-page">
+      <header class="edit-header">
+        <h1 id="pageTitle">افزودن آیتم جدید</h1>
+        <a href="./admin.html" class="btn-outline">بازگشت به داشبورد</a>
+      </header>
+
+      <form id="itemForm" class="edit-form">
+        <!-- متاباکس اطلاعات اصلی -->
+        <div class="meta-box">
+          <h2 class="meta-box-title">اطلاعات اصلی</h2>
+          <div class="field-group">
+            <label>نام آیتم</label>
+            <input type="text" id="itemName" required />
+          </div>
+          <div class="field-group">
+            <label>توضیحات</label>
+            <textarea id="itemDesc" rows="4"></textarea>
+          </div>
+          <div class="field-group">
+            <label>قیمت (تومان)</label>
+            <input type="number" id="itemPrice" required />
+          </div>
+        </div>
+
+        <!-- متاباکس دسته‌بندی و افزودنی -->
+        <div class="meta-box">
+          <h2 class="meta-box-title">دسته‌بندی و افزودنی‌ها</h2>
+          <div class="field-group">
+            <label>دسته‌بندی</label>
+            <select id="itemCategory" required></select>
+          </div>
+          <div class="field-group">
+            <label>گروه افزودنی</label>
+            <select id="itemAddonGroup">
+              <option value="">بدون افزودنی</option>
+              <option value="drink">نوشیدنی</option>
+              <option value="food">غذا</option>
+            </select>
+          </div>
+          <div class="inline-fields">
+            <div class="field-group">
+              <label>حداقل سفارش</label>
+              <input type="number" id="orderMin" value="0" />
+            </div>
+            <div class="field-group">
+              <label>حداکثر سفارش</label>
+              <input type="number" id="orderMax" value="0" />
+            </div>
+          </div>
+        </div>
+
+        <!-- متاباکس گالری تصاویر -->
+        <div class="meta-box">
+          <h2 class="meta-box-title">گالری تصاویر</h2>
+          <div class="field-group">
+            <label>عکس‌های فعلی (برای حذف کلیک کنید)</label>
+            <div class="images-grid" id="imagesGrid"></div>
+          </div>
+          <div class="field-group">
+            <label>افزودن عکس جدید</label>
+            <button
+              type="button"
+              id="openMediaLibrary"
+              class="btn-outline"
+              style="margin-bottom: 12px"
+            >
+              📷 انتخاب از کتابخانه
+            </button>
+            <input type="file" id="itemImages" accept="image/*" multiple />
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary btn-large">ذخیره</button>
+          <a href="./admin.html" class="btn-outline">انصراف</a>
+        </div>
+      </form>
+    </div>
+
+    <!-- Upload & Gallery Modal -->
+    <div id="mediaLibraryModal" class="modal" style="display: none">
+      <div class="modal-content media-library-modal">
+        <div class="modal-header">
+          <h3>کتابخانه رسانه</h3>
+          <button type="button" class="close-btn" id="closeMediaModal">
+            ×
+          </button>
+        </div>
+        <div class="media-library-body">
+          <div id="mediaLibraryGrid" class="media-grid"></div>
+          <div id="mediaLibrarySentinel" style="height:1px;"></div>
+          <div class="media-upload-area">
+            <input
+              type="file"
+              id="mediaLibraryUpload"
+              accept="image/*"
+              multiple
+            />
+            <button type="button" id="uploadToLibraryBtn" class="btn-primary">
+              بارگذاری به کتابخانه
+            </button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="insertSelectedMedia" class="btn-primary">
+            افزودن انتخاب‌شده‌ها
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./admin-edit.js"></script>
+  </body>
+</html>

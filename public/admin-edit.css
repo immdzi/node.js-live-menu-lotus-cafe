@@ -1,0 +1,224 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: #f0f2f5;
+  direction: rtl;
+  color: #2d3436;
+}
+
+.edit-page {
+  max-width: 860px;
+  margin: 30px auto;
+  padding: 0 20px 40px;
+}
+
+.edit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 20px 25px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.edit-header h1 {
+  font-size: 1.3rem;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #e17055;
+  color: #e17055;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-primary {
+  background: #e17055;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn-large {
+  padding: 12px 30px;
+  font-size: 1rem;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.meta-box {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+.meta-box-title {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+  color: #2d3436;
+}
+
+.field-group {
+  margin-bottom: 18px;
+}
+.field-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #555;
+}
+.field-group input,
+.field-group select,
+.field-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #dfe2e7;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+.field-group textarea {
+  resize: vertical;
+}
+
+.inline-fields {
+  display: flex;
+  gap: 20px;
+}
+.inline-fields .field-group {
+  flex: 1;
+}
+
+/* گالری */
+.images-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+.image-thumb {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid #e0e0e0;
+  background: #f9f9f9;
+  transition: 0.2s;
+}
+.image-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.image-thumb .delete-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: rgba(220, 50, 50, 0.85);
+  color: white;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 1;
+  transition: background 0.2s;
+}
+.image-thumb:hover .delete-badge {
+  background: #c0392b;
+}
+.image-thumb.deleted {
+  opacity: 0.5;
+  border-color: #e74c3c;
+}
+.image-thumb.deleted .delete-badge {
+  display: none;
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* پیش‌نمایش عکس‌های شکسته */
+.image-thumb.broken {
+  background: #ffe0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #c0392b;
+}
+
+/* مودال کتابخانه */
+.modal {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 1000;
+}
+.media-library-modal {
+  background: white; border-radius: 16px; padding: 20px;
+  width: 90%; max-width: 800px; max-height: 80vh;
+  display: flex; flex-direction: column;
+}
+.modal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 15px;
+}
+.close-btn {
+  background: transparent; border: none; font-size: 28px; cursor: pointer;
+  line-height: 1; color: #666;
+}
+.media-library-body {
+  flex: 1; overflow-y: auto; margin-bottom: 15px;
+}
+.media-grid {
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.media-card {
+  width: 120px; border: 2px solid #eee; border-radius: 8px;
+  overflow: hidden; cursor: pointer; transition: 0.2s;
+  position: relative;
+}
+.media-card.selected {
+  border-color: #e17055;
+}
+.media-card img {
+  width: 100%; height: 100px; object-fit: cover; display: block;
+}
+.media-card .media-info {
+  padding: 5px; font-size: 10px; text-align: center;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.media-card .media-info button {
+  font-size: 10px; padding: 2px 5px;
+}
+.media-upload-area {
+  display: flex; gap: 10px; margin-top: 10px;
+}
+.modal-footer {
+  text-align: left;
+}

@@ -1,0 +1,183 @@
+{
+  "admin": {
+    "username": "admin",
+    "password": "lotus1403"
+  },
+  "categories": [
+    {
+      "id": "coffee",
+      "name": "قهوه گرم",
+      "icon": "coffee",
+      "image": ""
+    },
+    {
+      "id": "cold",
+      "name": "نوشیدنی سرد",
+      "icon": "cold",
+      "image": ""
+    },
+    {
+      "id": "breakfast",
+      "name": "صبحانه",
+      "icon": "breakfast",
+      "image": ""
+    },
+    {
+      "id": "pizza",
+      "name": "پیتزا",
+      "icon": "pizza",
+      "image": ""
+    },
+    {
+      "id": "burger",
+      "name": "برگر",
+      "icon": "burger",
+      "image": ""
+    },
+    {
+      "id": "pasta",
+      "name": "پاستا",
+      "icon": "pasta",
+      "image": ""
+    },
+    {
+      "id": "salad",
+      "name": "سالاد",
+      "icon": "salad",
+      "image": ""
+    },
+    {
+      "id": "dessert",
+      "name": "دسر",
+      "icon": "dessert",
+      "image": ""
+    },
+    {
+      "id": "shake",
+      "name": "شیک",
+      "icon": "shake",
+      "image": ""
+    },
+    {
+      "id": "tea",
+      "name": "دمنوش",
+      "icon": "tea",
+      "image": ""
+    }
+  ],
+  "addonGroups": {
+    "drink": [
+      {
+        "name": "سیروپ وانیل",
+        "price": 8000,
+        "image": "https://picsum.photos/seed/vanilla/120"
+      },
+      {
+        "name": "سیروپ کارامل",
+        "price": 8000,
+        "image": "https://picsum.photos/seed/caramel/120"
+      },
+      {
+        "name": "عسل",
+        "price": 10000,
+        "image": "https://picsum.photos/seed/honey/120"
+      },
+      {
+        "name": "نوتلا",
+        "price": 15000,
+        "image": "https://picsum.photos/seed/nutella/120"
+      },
+      {
+        "name": "خامه",
+        "price": 7000,
+        "image": "https://picsum.photos/seed/cream/120"
+      },
+      {
+        "name": "دارچین",
+        "price": 5000,
+        "image": "https://picsum.photos/seed/cinnamon/120"
+      }
+    ],
+    "food": [
+      {
+        "name": "سس مخصوص",
+        "price": 6000,
+        "image": "https://picsum.photos/seed/sauce/120"
+      },
+      {
+        "name": "پنیر اضافه",
+        "price": 12000,
+        "image": "https://picsum.photos/seed/cheese/120"
+      },
+      {
+        "name": "قارچ",
+        "price": 9000,
+        "image": "https://picsum.photos/seed/mushroom/120"
+      },
+      {
+        "name": "ژامبون",
+        "price": 14000,
+        "image": "https://picsum.photos/seed/ham/120"
+      },
+      {
+        "name": "فلفل",
+        "price": 4000,
+        "image": "https://picsum.photos/seed/pepper/120"
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "coffee-1",
+      "name": "اسپرسو ۱",
+      "desc": "با دانه‌های مرغوب و فرآوری دقیق، عطر و طعمی فراموش‌نشدنی.",
+      "price": 20000,
+      "categoryId": "coffee",
+      "images": [
+        "/uploads/1781097023454-679250884.JPG"
+      ],
+      "addonGroup": "drink",
+      "orderMin": 0,
+      "orderMax": 0
+    },
+    {
+      "id": "cold-1",
+      "name": "آیس لاته ۱",
+      "desc": "ترکیبی متعادل و خوش‌طعم، مناسب هر سلیقه.",
+      "price": 30000,
+      "categoryId": "cold",
+      "images": [
+        "/uploads/1781024963830-254327290.webp"
+      ],
+      "addonGroup": "drink",
+      "orderMin": 0,
+      "orderMax": 0
+    },
+    {
+      "id": "coffee-1781009300904",
+      "name": "دبلل",
+      "desc": "با دانه‌های مرغوب و فرآوری دقیق، عطر و طعمی فراموش‌نشدنی.\r\nبا دانه‌های مرغوب و فرآوری دقیق، عطر و طعمی فراموش‌نشدنی.",
+      "price": 70000,
+      "categoryId": "coffee",
+      "images": [
+        "/uploads/1781009300450-275135921.jpg",
+        "/uploads/1781020303115-953736506.jfif",
+        "/uploads/1781020303117-685889273.jfif",
+        "/uploads/1781020303117-631756303.jpg",
+        "/uploads/1781020303136-766504620.jpg",
+        "/uploads/1781020303203-391855002.jpg",
+        "/uploads/1781020341773-126652539.jfif",
+        "/uploads/1781020341774-701905723.jfif",
+        "/uploads/1781020341775-896180804.jpg",
+        "/uploads/1781020341792-912298053.jpg",
+        "/uploads/1781020341825-445977151.jpg",
+        "/uploads/1781020633388-292527229.JPG",
+        "/uploads/1781020808796-928187832.JPG",
+        "/uploads/1781022449738-314466656.JPG"
+      ],
+      "addonGroup": "drink",
+      "orderMin": 1,
+      "orderMax": 5
+    }
+  ]
+}
