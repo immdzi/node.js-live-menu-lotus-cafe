@@ -1,4 +1,21 @@
-const apiBase = "/api";
+console.log("✅ admin.js بارگذاری شد");
+const apiBase = "/api"; 
+// تنظیم Notyf
+const notyf = new Notyf({
+  position: {
+    x: 'left',
+    y: 'top'
+  },
+  duration: 3500,
+  types: [
+    {
+      type: 'warning',
+      background: '#fdcb6e',
+      icon: false
+    }
+  ]
+});
+
 let token = localStorage.getItem("adminToken") || "";
 
 // ---------- لاگین ----------
@@ -123,6 +140,7 @@ async function deleteCategory(id) {
     headers: authHeaders(),
   });
   loadCategories();
+  notyf.success("دسته‌بندی حذف شد");
 }
 
 catForm.addEventListener("submit", async (e) => {
@@ -142,6 +160,7 @@ catForm.addEventListener("submit", async (e) => {
   });
   catForm.reset();
   loadCategories();
+  notyf.error(id ? "دسته‌بندی بروز شد" : "دسته‌بندی اضافه شد");
 });
 
 // ========== آیتم‌ها ==========
@@ -176,6 +195,7 @@ window.deleteItem = async function (id) {
     headers: authHeaders(),
   });
   loadItems();
+  notyf.success('آیتم حذف شد');
 };
 
 // ========== افزودنی‌ها ==========
@@ -242,6 +262,7 @@ document.getElementById("saveAddons").addEventListener("click", async () => {
   });
   document.getElementById("addonModal").style.display = "none";
   loadAddons();
+  notyf.success('افزودنی‌ها ذخیره شدند');
 });
 
 document.getElementById("closeAddonModal").addEventListener("click", () => {
@@ -308,7 +329,8 @@ async function loadMedia(reset = true) {
 
     renderMediaGrid();
   } catch (err) {
-    console.error("خطا در بارگذاری رسانه‌ها:", err);
+    loginMsg.textContent = "خطای شبکه";
+    notyf.error('ارتباط با سرور برقرار نشد');
   } finally {
     mediaCache.isLoading = false;
   }
@@ -383,6 +405,7 @@ uploadMediaBtn.addEventListener("click", async () => {
     });
     if (res.ok) {
       uploadStatus.textContent = "با موفقیت آپلود شد.";
+      notyf.success('فایل‌ها آپلود شدند');
       mediaUpload.value = "";
       // ریست کش و لود مجدد (برای دیدن فایل‌های جدید)
       resetMediaCache();
