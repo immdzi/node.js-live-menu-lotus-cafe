@@ -1,69 +1,16 @@
 {
-  "admin": {
-    "username": "admin",
-    "password": "lotus1403"
-  },
+  "admin": { "username": "admin", "password": "lotus1403" },
   "categories": [
-    {
-      "id": "coffee",
-      "name": "قهوه گرم",
-      "icon": "coffee",
-      "image": ""
-    },
-    {
-      "id": "cold",
-      "name": "نوشیدنی سرد",
-      "icon": "cold",
-      "image": ""
-    },
-    {
-      "id": "breakfast",
-      "name": "صبحانه",
-      "icon": "breakfast",
-      "image": ""
-    },
-    {
-      "id": "pizza",
-      "name": "پیتزا",
-      "icon": "pizza",
-      "image": ""
-    },
-    {
-      "id": "burger",
-      "name": "برگر",
-      "icon": "burger",
-      "image": ""
-    },
-    {
-      "id": "pasta",
-      "name": "پاستا",
-      "icon": "pasta",
-      "image": ""
-    },
-    {
-      "id": "salad",
-      "name": "سالاد",
-      "icon": "salad",
-      "image": ""
-    },
-    {
-      "id": "dessert",
-      "name": "دسر",
-      "icon": "dessert",
-      "image": ""
-    },
-    {
-      "id": "shake",
-      "name": "شیک",
-      "icon": "shake",
-      "image": ""
-    },
-    {
-      "id": "tea",
-      "name": "دمنوش",
-      "icon": "tea",
-      "image": ""
-    }
+    { "id": "coffee", "name": "قهوه گرم", "icon": "coffee", "image": "" },
+    { "id": "cold", "name": "نوشیدنی سرد", "icon": "cold", "image": "" },
+    { "id": "breakfast", "name": "صبحانه", "icon": "breakfast", "image": "" },
+    { "id": "pizza", "name": "پیتزا", "icon": "pizza", "image": "" },
+    { "id": "burger", "name": "برگر", "icon": "burger", "image": "" },
+    { "id": "pasta", "name": "پاستا", "icon": "pasta", "image": "" },
+    { "id": "salad", "name": "سالاد", "icon": "salad", "image": "" },
+    { "id": "dessert", "name": "دسر", "icon": "dessert", "image": "" },
+    { "id": "shake", "name": "شیک", "icon": "shake", "image": "" },
+    { "id": "tea", "name": "دمنوش", "icon": "tea", "image": "" }
   ],
   "addonGroups": {
     "drink": [
@@ -133,10 +80,7 @@
       "desc": "با دانه‌های مرغوب و فرآوری دقیق، عطر و طعمی فراموش‌نشدنی.",
       "price": 20000,
       "categoryId": "coffee",
-      "images": [
-        "/uploads/1781097023454-679250884.JPG",
-        "/uploads/1781102645629-325309977.JPG"
-      ],
+      "images": ["/uploads/1781346703289-311643605.JPG"],
       "addonGroup": "drink",
       "orderMin": 1,
       "orderMax": 5
@@ -147,9 +91,7 @@
       "desc": "ترکیبی متعادل و خوش‌طعم، مناسب هر سلیقه.",
       "price": 30000,
       "categoryId": "cold",
-      "images": [
-        "/uploads/1781024963830-254327290.webp"
-      ],
+      "images": ["/uploads/1781024963830-254327290.webp"],
       "addonGroup": "drink",
       "orderMin": 0,
       "orderMax": 0
@@ -186,9 +128,7 @@
       "desc": "توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات ",
       "price": 209998,
       "categoryId": "coffee",
-      "images": [
-        "/uploads/1781022449738-314466656.JPG"
-      ],
+      "images": ["/uploads/1781022449738-314466656.JPG"],
       "addonGroup": "drink",
       "orderMin": 1,
       "orderMax": 5
@@ -199,9 +139,7 @@
       "desc": "توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات ",
       "price": 159999,
       "categoryId": "coffee",
-      "images": [
-        "/uploads/1781101970855-744616844.JPG"
-      ],
+      "images": ["/uploads/1781101970855-744616844.JPG"],
       "addonGroup": null,
       "orderMin": 1,
       "orderMax": 5
@@ -212,9 +150,7 @@
       "desc": "توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات ",
       "price": 169999,
       "categoryId": "coffee",
-      "images": [
-        "/uploads/1781102197303-279516493.JPG"
-      ],
+      "images": ["/uploads/1781102197303-279516493.JPG"],
       "addonGroup": "drink",
       "orderMin": 1,
       "orderMax": 5
@@ -225,9 +161,131 @@
       "desc": "توضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحات",
       "price": 299998,
       "categoryId": "shake",
+      "images": ["/uploads/1781104830696-903582748.JPG"],
+      "addonGroup": "drink",
+      "orderMin": 1,
+      "orderMax": 5
+    },
+    {
+      "id": "coffee-1781346742357",
+      "name": "dgsg",
+      "desc": "sdfsdf",
+      "price": 199999,
+      "categoryId": "coffee",
+      "images": ["/uploads/1781346220398-770129932.JPG"],
+      "addonGroup": null,
+      "orderMin": 1,
+      "orderMax": 5
+    },
+    {
+      "id": "coffee-1781346759333",
+      "name": "asdasd",
+      "desc": "akskdad",
+      "price": 199998,
+      "categoryId": "coffee",
+      "images": ["/uploads/1781102197303-279516493.JPG"],
+      "addonGroup": null,
+      "orderMin": 0,
+      "orderMax": 0
+    },
+    {
+      "id": "cold-1781356314641",
+      "name": "آیتم جدید",
+      "desc": "  توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات",
+      "price": 170000,
+      "categoryId": "cold",
+      "images": [],
+      "addonGroup": "drink",
+      "orderMin": 1,
+      "orderMax": 5
+    },
+    {
+      "id": "coffee-1781356831064",
+      "name": "آیتم جدید جدید",
+      "desc": " توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات ",
+      "price": 300000,
+      "categoryId": "coffee",
+      "images": ["/uploads/1781356827196-214021245.JPG"],
+      "addonGroup": null,
+      "orderMin": 1,
+      "orderMax": 5
+    },
+    {
+      "id": "coffee-1781356948727",
+      "name": "kkkkk",
+      "desc": " توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات ",
+      "price": 599998,
+      "categoryId": "coffee",
       "images": [
-        "/uploads/1781104830696-903582748.JPG"
+        "/uploads/1781356827196-214021245.JPG",
+        "/uploads/1781356937232-925026887.JPG"
       ],
+      "addonGroup": "food",
+      "orderMin": 1,
+      "orderMax": 5
+    },
+    {
+      "id": "breakfast-1781357477347",
+      "name": "ppppp",
+      "desc": " توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات ",
+      "price": 300000,
+      "categoryId": "breakfast",
+      "images": ["/uploads/1781357468690-681628938.JPG"],
+      "addonGroup": "food",
+      "orderMin": 1,
+      "orderMax": 5
+    },
+    {
+      "id": "pizza-1781358529388",
+      "name": "تست سلکت",
+      "desc": " توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات ",
+      "price": 249998,
+      "categoryId": "pizza",
+      "images": [],
+      "addonGroup": "food",
+      "orderMin": 1,
+      "orderMax": 5
+    },
+    {
+      "id": "coffee-1781358595796",
+      "name": "شوت",
+      "desc": " توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات ",
+      "price": 59998,
+      "categoryId": "coffee",
+      "images": [],
+      "addonGroup": null,
+      "orderMin": 1,
+      "orderMax": 5
+    },
+    {
+      "id": "shake-1781358944377",
+      "name": "نام",
+      "desc": "توضیحات",
+      "price": 130000,
+      "categoryId": "shake",
+      "images": [],
+      "addonGroup": "food",
+      "orderMin": 1,
+      "orderMax": 5
+    },
+    {
+      "id": "burger-1781360255056",
+      "name": "new item",
+      "desc": " توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات",
+      "price": 299998,
+      "categoryId": "burger",
+      "images": ["/uploads/1781346703289-311643605.JPG"],
+      "addonGroup": "food",
+      "orderMin": 1,
+      "orderMax": 5
+    },
+    {
+      "id": "cold-1781360588582",
+      "name": "ماچا گاتو ",
+      "desc": "ماچاا ماچاا ماچاا ماچاا ماچاا ماچاا ماچاا ماچاا ماچاا ماچاا ماچاا ماچاا ماچاا ",
+      "price": 500000,
+      "categoryId": "cold",
+      "images": ["/uploads/1781360584123-353259412.JPG"],
       "addonGroup": "drink",
       "orderMin": 1,
       "orderMax": 5

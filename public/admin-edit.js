@@ -97,6 +97,7 @@ function getKeepImages() {
       if (badge && badge.dataset.img) keep.push(badge.dataset.img);
     }
   });
+  console.log("🖼️ keepImages collected:", keep);
   return keep;
 }
 
@@ -116,6 +117,7 @@ itemForm.addEventListener("submit", async (e) => {
   // عکس‌های باقی‌مانده
   const keepImages = getKeepImages();
   formData.append("keepImages", JSON.stringify(keepImages));
+  console.log("📤 sending keepImages:", keepImages);
 
   // عکس‌های جدید
   const files = itemImagesInput.files;
@@ -138,7 +140,7 @@ itemForm.addEventListener("submit", async (e) => {
       return;
     }
     notyf.success("ذخیره شد ✅");
-    window.location.href = "./admin.html"; // بازگشت به داشبورد
+    // window.location.href = "./admin.html"; // بازگشت به داشبورد
   } catch (err) {
     console.error(err);
     notyf.error("خطای شبکه");
@@ -316,6 +318,12 @@ insertSelectedBtn.addEventListener("click", () => {
       thumb.dataset.deleted = "true";
     });
     imagesGrid.appendChild(thumb);
+    console.log(
+      "✅ thumb added:",
+      url,
+      "dataset:",
+      thumb.querySelector(".delete-badge")?.dataset,
+    );
   });
   mediaModal.style.display = "none";
 });

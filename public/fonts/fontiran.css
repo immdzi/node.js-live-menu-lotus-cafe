@@ -38,15 +38,14 @@
       format("woff"); /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
 }
 
-@font-face {
+/* @font-face {
   font-family: ModamFaNumWeb;
   font-style: normal;
   font-weight: 600;
   src:
     url("fonts/woff2/ModamFaNumWeb-SemiBold.woff2") format("woff2"),
-    /* FF39+,Chrome36+, Opera24+*/ url("fonts/woff/ModamFaNumWeb-SemiBold.woff")
-      format("woff"); /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-}
+    url("fonts/woff/ModamFaNumWeb-SemiBold.woff") format("woff");
+} */
 
 @font-face {
   font-family: ModamFaNumWeb;

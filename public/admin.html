@@ -4,20 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>پنل مدیریت - کافه لوتوس</title>
-    <link rel="stylesheet" href="./admin.css" />
+    <!-- فونت -->
     <link rel="stylesheet" href="./fonts/style.css" />
+    <!-- Font Awesome لوکال -->
+    <link rel="stylesheet" href="./lib/fontawesome-lib/Web/css/all.min.css" />
+    <!-- Notyf CSS -->
+    <link rel="stylesheet" href="./lib/notyf/notyf.min.css" />
+    <link rel="stylesheet" href="./admin.css" />
   </head>
   <body>
     <!-- لاگین -->
     <div id="loginScreen" class="login-screen">
       <div class="login-card">
-        <h1>🔐 ورود به پنل مدیریت</h1>
+        <h1><i class="fas fa-lock"></i> ورود به پنل مدیریت</h1>
         <input
           type="password"
           id="passInput"
           placeholder="رمز عبور را وارد کنید"
         />
-        <button id="loginBtn">ورود</button>
+        <button id="loginBtn"><i class="fas fa-sign-in-alt"></i> ورود</button>
         <p id="loginMsg" class="msg"></p>
       </div>
     </div>
@@ -25,123 +30,152 @@
     <!-- داشبورد -->
     <div id="dashboard" class="dashboard" style="display: none">
       <header>
+        <button id="hamburgerBtn" class="hamburger" aria-label="منو">
+          <i class="fas fa-bars"></i>
+        </button>
         <h2>پنل مدیریت کافه لوتوس</h2>
-        <button id="logoutBtn" class="btn-outline">خروج</button>
+        <button id="logoutBtn" class="btn-outline">
+          <i class="fas fa-sign-out-alt"></i> خروج
+        </button>
       </header>
 
-      <div class="tabs">
-        <button class="tab active" data-tab="categories">دسته‌بندی‌ها</button>
-        <button class="tab" data-tab="items">آیتم‌ها</button>
-        <button class="tab" data-tab="addons">افزودنی‌ها</button>
-        <button class="tab" data-tab="media">رسانه‌ها</button>
+      <div class="dashboard-layout">
+        <!-- سایدبار راست -->
+        <aside class="sidebar" id="sidebar">
+          <button class="tab active" data-tab="categories">
+            <i class="fas fa-folder"></i> دسته‌بندی‌ها
+          </button>
+          <button class="tab" data-tab="items">
+            <i class="fas fa-utensils"></i> آیتم‌ها
+          </button>
+          <button class="tab" data-tab="addons">
+            <i class="fas fa-cheese"></i> افزودنی‌ها
+          </button>
+          <button class="tab" data-tab="media">
+            <i class="fas fa-images"></i> رسانه‌ها
+          </button>
+        </aside>
+
+        <!-- محتوای اصلی -->
+        <main class="main-content">
+          <!-- دسته‌بندی‌ها -->
+          <section id="tab-categories" class="tab-content active">
+            <h3><i class="fas fa-folder-open"></i> لیست دسته‌بندی‌ها</h3>
+            <ul id="catList" class="list"></ul>
+            <form id="catForm" class="form-panel">
+              <h4>
+                <i class="fas fa-plus-circle"></i> افزودن/ویرایش دسته‌بندی
+              </h4>
+              <input type="hidden" id="catId" />
+              <input
+                type="text"
+                id="catName"
+                placeholder="نام دسته‌بندی"
+                required
+              />
+              <select id="catIcon">
+                <option value="coffee">قهوه</option>
+                <option value="cold">نوشیدنی سرد</option>
+                <option value="breakfast">صبحانه</option>
+                <option value="pizza">پیتزا</option>
+                <option value="burger">برگر</option>
+                <option value="pasta">پاستا</option>
+                <option value="salad">سالاد</option>
+                <option value="dessert">دسر</option>
+                <option value="shake">شیک</option>
+                <option value="tea">دمنوش</option>
+              </select>
+              <label class="upload-label">
+                <i class="fas fa-camera"></i> عکس شاخص
+                <input type="file" id="catImage" accept="image/*" />
+              </label>
+              <div class="form-actions">
+                <button type="submit" class="btn-primary">
+                  <i class="fas fa-save"></i> ذخیره
+                </button>
+                <button type="button" id="cancelCat" class="btn-outline">
+                  انصراف
+                </button>
+              </div>
+            </form>
+          </section>
+
+          <!-- آیتم‌ها -->
+          <section id="tab-items" class="tab-content">
+            <h3><i class="fas fa-list-alt"></i> لیست آیتم‌ها</h3>
+            <a
+              href="./admin-edit.html"
+              class="btn-primary"
+              style="margin-bottom: 15px; display: inline-block"
+            >
+              <i class="fas fa-plus"></i> افزودن آیتم جدید
+            </a>
+            <ul id="itemList" class="list"></ul>
+          </section>
+
+          <!-- افزودنی‌ها -->
+          <section id="tab-addons" class="tab-content">
+            <h3><i class="fas fa-sliders-h"></i> مدیریت افزودنی‌ها</h3>
+            <div class="addon-group">
+              <h4><i class="fas fa-coffee"></i> نوشیدنی‌ها</h4>
+              <ul id="drinkAddonList" class="list"></ul>
+              <button
+                class="btn-primary"
+                data-group="drink"
+                onclick="editAddonGroup('drink')"
+              >
+                <i class="fas fa-edit"></i> ویرایش افزودنی‌های نوشیدنی
+              </button>
+            </div>
+            <div class="addon-group">
+              <h4><i class="fas fa-pizza-slice"></i> غذاها</h4>
+              <ul id="foodAddonList" class="list"></ul>
+              <button
+                class="btn-primary"
+                data-group="food"
+                onclick="editAddonGroup('food')"
+              >
+                <i class="fas fa-edit"></i> ویرایش افزودنی‌های غذا
+              </button>
+            </div>
+          </section>
+
+          <!-- رسانه‌ها -->
+          <section id="tab-media" class="tab-content">
+            <h3><i class="fas fa-photo-video"></i> کتابخانه رسانه</h3>
+            <div class="upload-bar">
+              <input type="file" id="mediaUpload" accept="image/*" multiple />
+              <button id="uploadMediaBtn" class="btn-primary">
+                <i class="fas fa-upload"></i> بارگذاری
+              </button>
+              <span id="uploadStatus"></span>
+            </div>
+            <div id="mediaGrid" class="media-grid"></div>
+            <div id="mediaSentinel" style="height: 1px"></div>
+          </section>
+        </main>
       </div>
-
-      <!-- دسته‌بندی‌ها -->
-      <section id="tab-categories" class="tab-content active">
-        <h3>لیست دسته‌بندی‌ها</h3>
-        <ul id="catList" class="list"></ul>
-        <form id="catForm" class="form-panel">
-          <h4>افزودن/ویرایش دسته‌بندی</h4>
-          <input type="hidden" id="catId" />
-          <input
-            type="text"
-            id="catName"
-            placeholder="نام دسته‌بندی"
-            required
-          />
-          <select id="catIcon">
-            <option value="coffee">قهوه</option>
-            <option value="cold">نوشیدنی سرد</option>
-            <option value="breakfast">صبحانه</option>
-            <option value="pizza">پیتزا</option>
-            <option value="burger">برگر</option>
-            <option value="pasta">پاستا</option>
-            <option value="salad">سالاد</option>
-            <option value="dessert">دسر</option>
-            <option value="shake">شیک</option>
-            <option value="tea">دمنوش</option>
-          </select>
-          <label class="upload-label">
-            عکس شاخص
-            <input type="file" id="catImage" accept="image/*" />
-          </label>
-          <div class="form-actions">
-            <button type="submit" class="btn-primary">ذخیره</button>
-            <button type="button" id="cancelCat" class="btn-outline">
-              انصراف
-            </button>
-          </div>
-        </form>
-      </section>
-
-      <!-- آیتم‌ها -->
-      <section id="tab-items" class="tab-content">
-        <h3>لیست آیتم‌ها</h3>
-        <a
-          href="./admin-edit.html"
-          class="btn-primary"
-          style="margin-bottom: 15px; display: inline-block"
-          >+ افزودن آیتم جدید</a
-        >
-        <ul id="itemList" class="list"></ul>
-      </section>
-
-      <!-- افزودنی‌ها -->
-      <section id="tab-addons" class="tab-content">
-        <h3>مدیریت افزودنی‌ها</h3>
-        <div class="addon-group">
-          <h4>نوشیدنی‌ها</h4>
-          <ul id="drinkAddonList" class="list"></ul>
-          <button
-            class="btn-primary"
-            data-group="drink"
-            onclick="editAddonGroup('drink')"
-          >
-            ویرایش افزودنی‌های نوشیدنی
-          </button>
-        </div>
-        <div class="addon-group">
-          <h4>غذاها</h4>
-          <ul id="foodAddonList" class="list"></ul>
-          <button
-            class="btn-primary"
-            data-group="food"
-            onclick="editAddonGroup('food')"
-          >
-            ویرایش افزودنی‌های غذا
-          </button>
-        </div>
-      </section>
-      <!-- Media library -->
-      <section id="tab-media" class="tab-content">
-        <h3>کتابخانه رسانه</h3>
-        <div style="margin-bottom: 15px">
-          <input type="file" id="mediaUpload" accept="image/*" multiple />
-          <button id="uploadMediaBtn" class="btn-primary">بارگذاری</button>
-          <span
-            id="uploadStatus"
-            style="margin-right: 10px; color: #888"
-          ></span>
-        </div>
-        <div id="mediaGrid" class="media-grid"></div>
-        <div id="mediaSentinel" style="height: 1px"></div>
-      </section>
     </div>
 
     <!-- مودال ویرایش افزودنی‌ها -->
     <div id="addonModal" class="modal" style="display: none">
       <div class="modal-content">
-        <h3>ویرایش افزودنی‌ها</h3>
+        <h3><i class="fas fa-edit"></i> ویرایش افزودنی‌ها</h3>
         <div id="addonEditList"></div>
-        <button id="addAddonRow" class="btn-outline">+ افزودن ردیف</button>
+        <button id="addAddonRow" class="btn-outline">
+          <i class="fas fa-plus"></i> افزودن ردیف
+        </button>
         <div class="form-actions">
-          <button id="saveAddons" class="btn-primary">ذخیره</button>
+          <button id="saveAddons" class="btn-primary">
+            <i class="fas fa-save"></i> ذخیره
+          </button>
           <button id="closeAddonModal" class="btn-outline">بستن</button>
         </div>
       </div>
     </div>
-    <link rel="stylesheet" href="./lib/notyf/notyf.min.css">
+
+    <!-- Notyf JS -->
     <script src="./lib/notyf/notyf.min.js"></script>
     <script src="./admin.js"></script>
-  </body> 
+  </body>
 </html>

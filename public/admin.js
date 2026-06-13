@@ -429,6 +429,43 @@ function initialMediaLoadIfActive() {
     loadMedia();
   }
 }
+
+// ========== مدیریت منوی همبرگری ==========
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const sidebar = document.getElementById('sidebar');
+
+// ایجاد overlay برای پس‌زمینه تاریک
+const overlayDiv = document.createElement('div');
+overlayDiv.className = 'sidebar-overlay';
+document.body.appendChild(overlayDiv);
+
+function openSidebar() {
+  sidebar.classList.add('open');
+  overlayDiv.classList.add('active');
+}
+function closeSidebar() {
+  sidebar.classList.remove('open');
+  overlayDiv.classList.remove('active');
+}
+
+hamburgerBtn.addEventListener('click', () => {
+  if (sidebar.classList.contains('open')) {
+    closeSidebar();
+  } else {
+    openSidebar();
+  }
+});
+
+// بستن با کلیک روی overlay
+overlayDiv.addEventListener('click', closeSidebar);
+
+// بستن سایدبار وقتی یک تب کلیک می‌شود (اختیاری)
+sidebar.addEventListener('click', (e) => {
+  if (e.target.classList.contains('tab') || e.target.closest('.tab')) {
+    closeSidebar();
+  }
+});
+
 showDashboard = (function (oldShowDashboard) {
   return function () {
     oldShowDashboard();

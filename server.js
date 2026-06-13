@@ -236,31 +236,62 @@ app.post(
   authMiddleware,
   upload.array("images", 5),
   async (req, res) => {
-    const data = readData();
-    const { name, desc, price, categoryId, addonGroup, orderMin, orderMax } =
-      req.body;
-    const images = req.files
-      ? req.files.map((f) => `/uploads/${f.filename}`)
-      : [];
-    const id = categoryId + "-" + Date.now();
-    const newItem = {
-      id,
-      name,
-      desc,
-      price: Number(price),
-      categoryId,
-      images,
-      addonGroup: addonGroup || null,
-      orderMin: Number(orderMin) || 0,
-      orderMax: Number(orderMax) || 0,
-    };
-    // ساخت بندانگشتی برای فایل‌های جدید
-    if (req.files && req.files.length > 0) {
-      await Promise.all(req.files.map(generateThumbnail));
+    try {
+      const data = readData();
+      const {
+        name,
+        desc,
+        price,
+        categoryId,
+        addonGroup,
+        orderMin,
+        orderMax,
+        keepImages,
+      } = req.body;
+    console.log('=== POST /api/items ===');
+    console.log('keepImages received:', keepImages);
+    console.log('files count:', req.files?.length);
+
+      // مدیریت عکس‌های نگه‌داشته‌شده (از کتابخانه یا پیش‌فرض)
+      let finalImages = [];
+      if (keepImages) {
+        try {
+          finalImages = JSON.parse(keepImages);
+        } catch (e) {
+          finalImages = [];
+        }
+      }
+
+      // افزودن عکس‌های جدید آپلودی
+      if (req.files && req.files.length > 0) {
+        const newPaths = req.files.map((f) => `/uploads/${f.filename}`);
+        finalImages = finalImages.concat(newPaths);
+        // تولید بندانگشتی‌ها
+        await Promise.all(req.files.map(generateThumbnail));
+      }
+
+      const id = categoryId + "-" + Date.now();
+      const newItem = {
+        id,
+        name,
+        desc,
+        price: Number(price),
+        categoryId,
+        images: finalImages,
+        addonGroup: addonGroup || null,
+        orderMin: Number(orderMin) || 0,
+        orderMax: Number(orderMax) || 0,
+      };
+
+      data.items.push(newItem);
+      writeData(data);
+      res.json(newItem);
+    } catch (err) {
+      console.error("خطا در افزودن آیتم:", err);
+      if (!res.headersSent) {
+        res.status(500).json({ error: "خطای داخلی" });
+      }
     }
-    data.items.push(newItem);
-    writeData(data);
-    res.json(newItem);
   },
 );
 
