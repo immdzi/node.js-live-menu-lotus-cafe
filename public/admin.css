@@ -1,11 +1,23 @@
-.fas, .far, .fab {
-  font-family: 'Font Awesome 7 Pro' !important;
+.fas,
+.far,
+.fab {
+  font-family: "Font Awesome 7 Pro" !important;
   font-weight: 900;
 }
+.fa-icon-item i {
+  font-family:
+    "Font Awesome 7 Pro", "Font Awesome 6 Pro", "Font Awesome 5 Pro",
+    "Font Awesome 5 Free", "Font Awesome 6 Free", sans-serif !important;
+  font-weight: 900 !important;
+}
 /* ========== پایه ========== */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
-  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-family: "Segoe UI", Tahoma, sans-serif;
   background: #f4f5f7;
   direction: rtl;
   color: #2d3436;
@@ -13,19 +25,34 @@ body {
 
 /* ========== ورود ========== */
 .login-screen {
-  display: flex; justify-content: center; align-items: center; height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 .login-card {
-  background: #fff; padding: 40px; border-radius: 16px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-  text-align: center; width: 380px; max-width: 90%;
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 380px;
+  max-width: 90%;
 }
-.login-card h1 { margin-bottom: 25px; }
+.login-card h1 {
+  margin-bottom: 25px;
+}
 .login-card input {
-  width: 100%; padding: 12px; margin-bottom: 15px;
-  border: 1px solid #dfe2e7; border-radius: 8px;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #dfe2e7;
+  border-radius: 8px;
 }
-.msg { color: #e17055; margin-top: 10px; }
+.msg {
+  color: #e17055;
+  margin-top: 10px;
+}
 
 /* ========== داشبورد ========== */
 .dashboard {
@@ -37,22 +64,37 @@ body {
 .dashboard header {
   padding: 15px 25px;
   background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.dashboard header h2 { font-size: 1.2rem; }
+.dashboard header h2 {
+  font-size: 1.2rem;
+}
 
 .btn-outline {
-  background: transparent; border: 1px solid #e17055; color: #e17055;
-  padding: 8px 18px; border-radius: 8px; cursor: pointer;
-  text-decoration: none; display: inline-flex; align-items: center; gap: 5px;
+  background: transparent;
+  border: 1px solid #e17055;
+  color: #e17055;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 .btn-primary {
-  background: #e17055; color: #fff; border: none;
-  padding: 8px 18px; border-radius: 8px; cursor: pointer;
-  display: inline-flex; align-items: center; gap: 5px;
+  background: #e17055;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 /* ========== دکمه همبرگری ========== */
@@ -101,7 +143,9 @@ body {
   transition: 0.2s;
   border-right: 3px solid transparent;
 }
-.tab i { font-size: 1.1rem; }
+.tab i {
+  font-size: 1.1rem;
+}
 .tab:hover {
   background: #f9f9f9;
   color: #2d3436;
@@ -122,87 +166,151 @@ body {
 }
 
 /* بخش‌های تب */
-.tab-content { display: none; }
-.tab-content.active { display: block; }
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
 
 /* ========== استایل‌های عمومی ========== */
 .list {
-  list-style: none; margin-bottom: 20px;
+  list-style: none;
+  margin-bottom: 20px;
 }
 .list li {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 12px; background: white; margin-bottom: 8px;
-  border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-  flex-wrap: wrap; gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: white;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  flex-wrap: wrap;
+  gap: 10px;
 }
-.list li span { flex: 1; }
+.list li span {
+  flex: 1;
+}
 
 .form-panel {
-  background: white; padding: 20px; border-radius: 12px;
-  margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
 }
-.form-panel h4 { margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.form-panel h4 {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 .form-panel input,
 .form-panel textarea,
 .form-panel select {
-  width: 100%; padding: 10px; margin-bottom: 12px;
-  border: 1px solid #dfe2e7; border-radius: 8px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #dfe2e7;
+  border-radius: 8px;
   font-family: inherit;
 }
 .inline-fields {
-  display: flex; gap: 10px;
+  display: flex;
+  gap: 10px;
 }
-.inline-fields input { flex: 1; }
-.upload-label { display: block; margin-bottom: 12px; color: #555; }
+.inline-fields input {
+  flex: 1;
+}
+.upload-label {
+  display: block;
+  margin-bottom: 12px;
+  color: #555;
+}
 
 .form-actions {
-  display: flex; gap: 10px; margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
   flex-wrap: wrap;
 }
 
 /* ========== مودال ========== */
 .modal {
-  position: fixed; inset: 0; background: rgba(0,0,0,0.6);
-  display: flex; justify-content: center; align-items: center;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 1000;
 }
 .modal-content {
-  background: #fff; padding: 30px; border-radius: 16px;
-  width: 90%; max-width: 500px; max-height: 80vh; overflow-y: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 /* ========== رسانه‌ها ========== */
 .upload-bar {
-  display: flex; align-items: center; gap: 10px; margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
   flex-wrap: wrap;
 }
 .media-grid {
-  display: flex; flex-wrap: wrap; gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 .media-card {
-  width: 150px; border: 1px solid #ddd; border-radius: 8px;
-  overflow: hidden; background: white; cursor: pointer;
+  width: 150px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  cursor: pointer;
 }
 .media-card img {
-  width: 100%; height: 120px; object-fit: cover; display: block;
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
 }
 .media-info {
-  padding: 8px; font-size: 0.75rem;
-  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px;
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.media-info button { padding: 2px 8px; font-size: 0.7rem; }
+.media-info button {
+  padding: 2px 8px;
+  font-size: 0.7rem;
+}
 
 /* ========== افزودنی‌ها ========== */
 .addon-edit-row {
-  display: flex; gap: 10px; margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
 }
-.addon-edit-row input { flex: 1; }
+.addon-edit-row input {
+  flex: 1;
+}
 
 /* ========== نوتیفیکیشن ========== */
 .notyf__message {
   direction: rtl !important;
   text-align: right !important;
-  font-family: 'Segoe UI', Tahoma, sans-serif !important;
+  font-family: "Segoe UI", Tahoma, sans-serif !important;
 }
 
 /* ========== مدیا کوئری موبایل ========== */
@@ -224,7 +332,7 @@ body {
     height: 100%;
     z-index: 999;
     transition: right 0.3s ease;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   }
 
   .sidebar.open {
@@ -236,7 +344,7 @@ body {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
     z-index: 998;
   }
   .sidebar-overlay.active {
@@ -257,4 +365,108 @@ body {
   .inline-fields {
     flex-direction: column;
   }
+}
+
+/* ========== انتخاب آیکون ========== */
+.icon-picker-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.icon-preview {
+  width: 48px;
+  height: 48px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: #888;
+  background: #fafafa;
+}
+.icon-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* مودال آیکون */
+.icon-picker-modal {
+  width: 95%;
+  max-width: 800px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+}
+.icon-tabs {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+.icon-tab {
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+}
+.icon-tab.active {
+  background: #fff;
+  border-bottom-color: #fff;
+  font-weight: 600;
+  color: #e17055;
+}
+.icon-tab-content {
+  display: none;
+  flex: 1;
+  overflow-y: auto;
+}
+.icon-tab-content.active {
+  display: block;
+}
+
+/* جستجوی Font Awesome */
+#faSearch {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+.fa-icons-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.fa-icon-item {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  color: #555;
+}
+.fa-icon-item:hover,
+.fa-icon-item.selected {
+  background: #e17055;
+  color: #fff;
+  border-color: #e17055;
+}
+
+/* تب SVG */
+.svg-preview img {
+  max-width: 100px;
+  margin-top: 10px;
+}
+
+#openIconPicker {
+  background: red !important;
+  color: white !important;
+  padding: 10px !important;
 }

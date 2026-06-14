@@ -1,16 +1,86 @@
 {
-  "admin": { "username": "admin", "password": "lotus1403" },
+  "admin": {
+    "username": "admin",
+    "password": "lotus1403"
+  },
   "categories": [
-    { "id": "coffee", "name": "قهوه گرم", "icon": "coffee", "image": "" },
-    { "id": "cold", "name": "نوشیدنی سرد", "icon": "cold", "image": "" },
-    { "id": "breakfast", "name": "صبحانه", "icon": "breakfast", "image": "" },
-    { "id": "pizza", "name": "پیتزا", "icon": "pizza", "image": "" },
-    { "id": "burger", "name": "برگر", "icon": "burger", "image": "" },
-    { "id": "pasta", "name": "پاستا", "icon": "pasta", "image": "" },
-    { "id": "salad", "name": "سالاد", "icon": "salad", "image": "" },
-    { "id": "dessert", "name": "دسر", "icon": "dessert", "image": "" },
-    { "id": "shake", "name": "شیک", "icon": "shake", "image": "" },
-    { "id": "tea", "name": "دمنوش", "icon": "tea", "image": "" }
+    {
+      "id": "coffee",
+      "name": "قهوه گرم",
+      "iconType": "default",
+      "iconValue": "",
+      "image": ""
+    },
+    {
+      "id": "cold",
+      "name": "نوشیدنی سرد",
+      "iconType": "default",
+      "iconValue": "",
+      "image": ""
+    },
+    {
+      "id": "breakfast",
+      "name": "صبحانه",
+      "iconType": "default",
+      "iconValue": "",
+      "image": ""
+    },
+    {
+      "id": "pizza",
+      "name": "پیتزا",
+      "iconType": "default",
+      "iconValue": "",
+      "image": ""
+    },
+    {
+      "id": "burger",
+      "name": "برگر",
+      "iconType": "default",
+      "iconValue": "",
+      "image": ""
+    },
+    {
+      "id": "pasta",
+      "name": "پاستا",
+      "iconType": "default",
+      "iconValue": "",
+      "image": ""
+    },
+    {
+      "id": "salad",
+      "name": "سالاد",
+      "iconType": "default",
+      "iconValue": "",
+      "image": ""
+    },
+    {
+      "id": "dessert",
+      "name": "دسر",
+      "iconType": "default",
+      "iconValue": "",
+      "image": ""
+    },
+    {
+      "id": "shake",
+      "name": "شیک",
+      "iconType": "fontawesome",
+      "iconValue": "fa-solid fa-share",
+      "image": ""
+    },
+    {
+      "id": "tea",
+      "name": "دمنوش",
+      "iconType": "default",
+      "iconValue": "",
+      "image": ""
+    },
+    {
+      "id": "یک-دسته-بندی-جدید",
+      "name": "یک دسته بندی جدید",
+      "iconType": "fontawesome",
+      "iconValue": "fa-solid fa-battery-half",
+      "image": ""
+    }
   ],
   "addonGroups": {
     "drink": [
@@ -80,7 +150,9 @@
       "desc": "با دانه‌های مرغوب و فرآوری دقیق، عطر و طعمی فراموش‌نشدنی.",
       "price": 20000,
       "categoryId": "coffee",
-      "images": ["/uploads/1781346703289-311643605.JPG"],
+      "images": [
+        "/uploads/1781346703289-311643605.JPG"
+      ],
       "addonGroup": "drink",
       "orderMin": 1,
       "orderMax": 5
@@ -91,7 +163,9 @@
       "desc": "ترکیبی متعادل و خوش‌طعم، مناسب هر سلیقه.",
       "price": 30000,
       "categoryId": "cold",
-      "images": ["/uploads/1781024963830-254327290.webp"],
+      "images": [
+        "/uploads/1781024963830-254327290.webp"
+      ],
       "addonGroup": "drink",
       "orderMin": 0,
       "orderMax": 0
@@ -128,7 +202,9 @@
       "desc": "توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات ",
       "price": 209998,
       "categoryId": "coffee",
-      "images": ["/uploads/1781022449738-314466656.JPG"],
+      "images": [
+        "/uploads/1781022449738-314466656.JPG"
+      ],
       "addonGroup": "drink",
       "orderMin": 1,
       "orderMax": 5
@@ -139,7 +215,9 @@
       "desc": "توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات ",
       "price": 159999,
       "categoryId": "coffee",
-      "images": ["/uploads/1781101970855-744616844.JPG"],
+      "images": [
+        "/uploads/1781101970855-744616844.JPG"
+      ],
       "addonGroup": null,
       "orderMin": 1,
       "orderMax": 5
@@ -150,7 +228,9 @@
       "desc": "توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات ",
       "price": 169999,
       "categoryId": "coffee",
-      "images": ["/uploads/1781102197303-279516493.JPG"],
+      "images": [
+        "/uploads/1781102197303-279516493.JPG"
+      ],
       "addonGroup": "drink",
       "orderMin": 1,
       "orderMax": 5
@@ -161,7 +241,9 @@
       "desc": "توضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحاتتوضیحات",
       "price": 299998,
       "categoryId": "shake",
-      "images": ["/uploads/1781104830696-903582748.JPG"],
+      "images": [
+        "/uploads/1781104830696-903582748.JPG"
+      ],
       "addonGroup": "drink",
       "orderMin": 1,
       "orderMax": 5
@@ -172,7 +254,9 @@
       "desc": "sdfsdf",
       "price": 199999,
       "categoryId": "coffee",
-      "images": ["/uploads/1781346220398-770129932.JPG"],
+      "images": [
+        "/uploads/1781346220398-770129932.JPG"
+      ],
       "addonGroup": null,
       "orderMin": 1,
       "orderMax": 5
@@ -183,7 +267,9 @@
       "desc": "akskdad",
       "price": 199998,
       "categoryId": "coffee",
-      "images": ["/uploads/1781102197303-279516493.JPG"],
+      "images": [
+        "/uploads/1781102197303-279516493.JPG"
+      ],
       "addonGroup": null,
       "orderMin": 0,
       "orderMax": 0
@@ -205,7 +291,9 @@
       "desc": " توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات ",
       "price": 300000,
       "categoryId": "coffee",
-      "images": ["/uploads/1781356827196-214021245.JPG"],
+      "images": [
+        "/uploads/1781356827196-214021245.JPG"
+      ],
       "addonGroup": null,
       "orderMin": 1,
       "orderMax": 5
@@ -230,7 +318,9 @@
       "desc": " توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات ",
       "price": 300000,
       "categoryId": "breakfast",
-      "images": ["/uploads/1781357468690-681628938.JPG"],
+      "images": [
+        "/uploads/1781357468690-681628938.JPG"
+      ],
       "addonGroup": "food",
       "orderMin": 1,
       "orderMax": 5
@@ -274,7 +364,9 @@
       "desc": " توضیحات توضیحات توضیحات  توضیحات توضیحات توضیحات",
       "price": 299998,
       "categoryId": "burger",
-      "images": ["/uploads/1781346703289-311643605.JPG"],
+      "images": [
+        "/uploads/1781346703289-311643605.JPG"
+      ],
       "addonGroup": "food",
       "orderMin": 1,
       "orderMax": 5
@@ -285,7 +377,9 @@
       "desc": "ماچاا ماچاا ماچاا ماچاا ماچاا ماچاا ماچاا ماچاا ماچاا ماچاا ماچاا ماچاا ماچاا ",
       "price": 500000,
       "categoryId": "cold",
-      "images": ["/uploads/1781360584123-353259412.JPG"],
+      "images": [
+        "/uploads/1781360584123-353259412.JPG"
+      ],
       "addonGroup": "drink",
       "orderMin": 1,
       "orderMax": 5

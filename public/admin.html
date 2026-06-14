@@ -73,18 +73,38 @@
                 placeholder="نام دسته‌بندی"
                 required
               />
-              <select id="catIcon">
-                <option value="coffee">قهوه</option>
-                <option value="cold">نوشیدنی سرد</option>
-                <option value="breakfast">صبحانه</option>
-                <option value="pizza">پیتزا</option>
-                <option value="burger">برگر</option>
-                <option value="pasta">پاستا</option>
-                <option value="salad">سالاد</option>
-                <option value="dessert">دسر</option>
-                <option value="shake">شیک</option>
-                <option value="tea">دمنوش</option>
-              </select>
+              <!-- انتخاب آیکون -->
+              <div class="field-group">
+                <label>آیکون دسته‌بندی</label>
+                <div class="icon-picker-row">
+                  <div id="iconPreview" class="icon-preview">
+                    <i class="fas fa-question-circle"></i>
+                  </div>
+                  <button type="button" id="openIconPicker" class="btn-outline">
+                    <i class="fas fa-icons"></i> انتخاب آیکون
+                  </button>
+                  <button
+                    type="button"
+                    id="removeIcon"
+                    class="btn-outline"
+                    style="display: none"
+                  >
+                    <i class="fas fa-times"></i> حذف آیکون
+                  </button>
+                </div>
+                <input
+                  type="hidden"
+                  id="catIconType"
+                  name="iconType"
+                  value="default"
+                />
+                <input
+                  type="hidden"
+                  id="catIconValue"
+                  name="iconValue"
+                  value=""
+                />
+              </div>
               <label class="upload-label">
                 <i class="fas fa-camera"></i> عکس شاخص
                 <input type="file" id="catImage" accept="image/*" />
@@ -170,6 +190,53 @@
             <i class="fas fa-save"></i> ذخیره
           </button>
           <button id="closeAddonModal" class="btn-outline">بستن</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- مودال انتخاب آیکون -->
+    <div id="iconPickerModal" class="modal" style="display: none">
+      <div class="modal-content icon-picker-modal">
+        <div class="modal-header">
+          <h3><i class="fas fa-icons"></i> انتخاب آیکون</h3>
+          <button type="button" class="close-btn" id="closeIconPickerModal">
+            &times;
+          </button>
+        </div>
+
+        <!-- تب‌ها -->
+        <div class="icon-tabs">
+          <button class="icon-tab active" data-tab="fa-icons">
+            Font Awesome
+          </button>
+          <button class="icon-tab" data-tab="upload-svg">آپلود SVG</button>
+          <button class="icon-tab" data-tab="media-svg">کتابخانه SVG</button>
+        </div>
+
+        <!-- تب Font Awesome -->
+        <div id="tab-fa-icons" class="icon-tab-content active">
+          <input type="text" id="faSearch" placeholder="جستجوی آیکون..." />
+          <div id="faIconsGrid" class="fa-icons-grid"></div>
+        </div>
+
+        <!-- تب آپلود SVG -->
+        <div id="tab-upload-svg" class="icon-tab-content">
+          <input type="file" id="svgUpload" accept=".svg" />
+          <button type="button" id="uploadSvgBtn" class="btn-primary">
+            <i class="fas fa-upload"></i> آپلود
+          </button>
+          <div id="uploadSvgPreview" class="svg-preview"></div>
+        </div>
+
+        <!-- تب کتابخانه SVG -->
+        <div id="tab-media-svg" class="icon-tab-content">
+          <div id="mediaSvgGrid" class="media-grid"></div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" id="confirmIconBtn" class="btn-primary">
+            <i class="fas fa-check"></i> تأیید
+          </button>
         </div>
       </div>
     </div>

@@ -119,103 +119,60 @@ app.post(
   authMiddleware,
   upload.single("image"),
   async (req, res) => {
-    const data = readData();
-    const { name, icon } = req.body;
-    const image = req.file ? `/uploads/${req.file.filename}` : "";
-    const id = name.toLowerCase().replace(/\s+/g, "-");
-    const newCat = { id, name, icon, image };
-    data.categories.push(newCat);
+    try {
+      const data = readData();
+      const { name, iconType, iconValue } = req.body;
+      const image = req.file ? `/uploads/${req.file.filename}` : "";
+      const id = name.toLowerCase().replace(/\s+/g, "-");
 
-    // تولید بندانگشتی اگر فایلی ارسال شده باشد
-    if (req.file) {
-      await generateThumbnail(req.file);
+      const newCat = {
+        id,
+        name,
+        iconType: iconType || "default",
+        iconValue: iconValue || "",
+        image,
+      };
+
+      if (req.file) {
+        await generateThumbnail(req.file);
+      }
+
+      data.categories.push(newCat);
+      writeData(data);
+      res.json(newCat);
+    } catch (err) {
+      console.error(err);
+      if (!res.headersSent) res.status(500).json({ error: "خطای داخلی" });
     }
-
-    writeData(data);
-    res.json(newCat);
   },
 );
 
 app.put(
-  "/api/items/:id",
+  "/api/categories/:id",
   authMiddleware,
-  upload.array("images", 5),
+  upload.single("image"),
   async (req, res) => {
     try {
       const data = readData();
-      const index = data.items.findIndex((item) => item.id === req.params.id);
-      if (index === -1) return res.status(404).json({ error: "آیتم یافت نشد" });
+      const index = data.categories.findIndex((c) => c.id === req.params.id);
+      if (index === -1)
+        return res.status(404).json({ error: "دسته‌بندی یافت نشد" });
 
-      const item = data.items[index];
-      const {
-        name,
-        desc,
-        price,
-        categoryId,
-        addonGroup,
-        orderMin,
-        orderMax,
-        keepImages,
-      } = req.body;
+      const { name, iconType, iconValue } = req.body;
+      if (name) data.categories[index].name = name;
+      if (iconType !== undefined) data.categories[index].iconType = iconType;
+      if (iconValue !== undefined) data.categories[index].iconValue = iconValue;
 
-      if (name) item.name = name;
-      if (desc) item.desc = desc;
-      if (price) item.price = Number(price);
-      if (categoryId) item.categoryId = categoryId;
-      if (addonGroup !== undefined) item.addonGroup = addonGroup || null;
-      if (orderMin !== undefined) item.orderMin = Number(orderMin);
-      if (orderMax !== undefined) item.orderMax = Number(orderMax);
-
-      // مدیریت عکس‌های نگه‌داشته‌شده
-      let finalImages = item.images || [];
-      if (keepImages !== undefined) {
-        try {
-          finalImages = JSON.parse(keepImages);
-        } catch (e) {
-          finalImages = [];
-        }
-        // حذف فایل‌های قدیمی که حذف شدن از لیست
-        const oldImages = item.images || [];
-        oldImages.forEach((oldImg) => {
-          if (!finalImages.includes(oldImg) && oldImg.startsWith("/uploads/")) {
-            const filePath = path.join(__dirname, "public", oldImg);
-            if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
-            // حذف بندانگشتی مربوطه هم در صورت وجود
-            const thumbName = "thumb-" + path.basename(oldImg);
-            const thumbPath = path.join(THUMBS_DIR, thumbName);
-            if (fs.existsSync(thumbPath)) fs.unlinkSync(thumbPath);
-          }
-        });
+      if (req.file) {
+        data.categories[index].image = `/uploads/${req.file.filename}`;
+        await generateThumbnail(req.file);
       }
 
-      // افزودن عکس‌های جدید و تولید بندانگشتی
-      if (req.files && req.files.length > 0) {
-        const newPaths = req.files.map((f) => `/uploads/${f.filename}`);
-        finalImages = finalImages.concat(newPaths);
-        // تولید بندانگشتی‌ها
-        await Promise.all(req.files.map(generateThumbnail));
-      }
-
-      item.images = finalImages;
       writeData(data);
-
-      console.log(
-        "🔄 update item:",
-        req.params.id,
-        "keepImages:",
-        req.body.keepImages,
-        "new files:",
-        req.files?.length,
-      );
-      console.log("📌 final images:", item.images);
-
-      // فقط یک پاسخ
-      return res.json(item);
+      res.json(data.categories[index]);
     } catch (err) {
-      console.error("خطا در ویرایش آیتم:", err);
-      if (!res.headersSent) {
-        return res.status(500).json({ error: "خطای داخلی" });
-      }
+      console.error(err);
+      if (!res.headersSent) res.status(500).json({ error: "خطای داخلی" });
     }
   },
 );
@@ -248,9 +205,9 @@ app.post(
         orderMax,
         keepImages,
       } = req.body;
-    console.log('=== POST /api/items ===');
-    console.log('keepImages received:', keepImages);
-    console.log('files count:', req.files?.length);
+      console.log("=== POST /api/items ===");
+      console.log("keepImages received:", keepImages);
+      console.log("files count:", req.files?.length);
 
       // مدیریت عکس‌های نگه‌داشته‌شده (از کتابخانه یا پیش‌فرض)
       let finalImages = [];

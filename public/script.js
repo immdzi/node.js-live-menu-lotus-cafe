@@ -24,6 +24,18 @@ const icons = {
   tea: '<svg viewBox="0 0 24 24"><path d="M2 19h18v2H2zM20 3H4v10a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4v-3h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg>',
 };
 
+// دریافت HTML آیکون برای یک دسته‌بندی
+function getCategoryIconHTML(cat) {
+  if (cat.iconType === "fontawesome" && cat.iconValue) {
+    return `<i class="fa ${cat.iconValue}"></i>`;
+  }
+  if (cat.iconType === "svg" && cat.iconValue) {
+    return `<img src="${cat.iconValue}" alt="${cat.name}" style="width:22px;height:22px;vertical-align:middle;" />`;
+  }
+  // حالت پیش‌فرض: از آیکون SVG قدیمی بر اساس شناسهٔ دسته استفاده کن (fallback)
+  return icons[cat.id] || "";
+}
+
 // فرمت قیمت با نماد تومان
 function formatPrice(price) {
   const num = Number(price);
@@ -62,8 +74,8 @@ function renderMenu() {
     const btn = document.createElement("button");
     btn.className = "cat-btn";
     btn.dataset.target = cat.id;
-    const iconSVG = icons[cat.icon] || "";
-    btn.innerHTML = `${iconSVG}<span>${cat.name}</span>`;
+    const iconHTML = getCategoryIconHTML(cat);
+    btn.innerHTML = `${iconHTML}<span>${cat.name}</span>`;
     btn.onclick = () => {
       document
         .getElementById(cat.id)
@@ -75,7 +87,7 @@ function renderMenu() {
     const section = document.createElement("section");
     section.className = "category-section";
     section.id = cat.id;
-    section.innerHTML = `<h2 class="section-title">${iconSVG}${cat.name}</h2>`;
+    section.innerHTML = `<h2 class="section-title">${iconHTML}${cat.name}</h2>`;
 
     const itemsInCat = allItems.filter((item) => item.categoryId === cat.id);
     if (itemsInCat.length === 0) {

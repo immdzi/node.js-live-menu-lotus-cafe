@@ -18,3 +18,6 @@ Thumbs.db
 
 # Fontawsome
 public/lib/fontawesome-lib/
+
+# uploads
+public/uploads/
