@@ -117,12 +117,11 @@ app.get("/api/addons", (req, res) => {
 app.post(
   "/api/categories",
   authMiddleware,
-  upload.single("image"),
+  // دیگر از upload استفاده نمی‌کنیم
   async (req, res) => {
     try {
       const data = readData();
       const { name, iconType, iconValue } = req.body;
-      const image = req.file ? `/uploads/${req.file.filename}` : "";
       const id = name.toLowerCase().replace(/\s+/g, "-");
 
       const newCat = {
@@ -130,12 +129,8 @@ app.post(
         name,
         iconType: iconType || "default",
         iconValue: iconValue || "",
-        image,
+        // فیلد image حذف شد
       };
-
-      if (req.file) {
-        await generateThumbnail(req.file);
-      }
 
       data.categories.push(newCat);
       writeData(data);
@@ -150,7 +145,7 @@ app.post(
 app.put(
   "/api/categories/:id",
   authMiddleware,
-  upload.single("image"),
+  // بدون upload
   async (req, res) => {
     try {
       const data = readData();
@@ -163,10 +158,7 @@ app.put(
       if (iconType !== undefined) data.categories[index].iconType = iconType;
       if (iconValue !== undefined) data.categories[index].iconValue = iconValue;
 
-      if (req.file) {
-        data.categories[index].image = `/uploads/${req.file.filename}`;
-        await generateThumbnail(req.file);
-      }
+      // فیلد image دیگر به‌روز نمی‌شود (اصلاً وجود خارجی ندارد)
 
       writeData(data);
       res.json(data.categories[index]);

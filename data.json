@@ -8,78 +8,67 @@
       "id": "coffee",
       "name": "قهوه گرم",
       "iconType": "default",
-      "iconValue": "",
-      "image": ""
+      "iconValue": ""
     },
     {
       "id": "cold",
       "name": "نوشیدنی سرد",
       "iconType": "default",
-      "iconValue": "",
-      "image": ""
+      "iconValue": ""
     },
     {
       "id": "breakfast",
       "name": "صبحانه",
       "iconType": "default",
-      "iconValue": "",
-      "image": ""
+      "iconValue": ""
     },
     {
       "id": "pizza",
       "name": "پیتزا",
       "iconType": "default",
-      "iconValue": "",
-      "image": ""
+      "iconValue": ""
     },
     {
       "id": "burger",
       "name": "برگر",
       "iconType": "default",
-      "iconValue": "",
-      "image": ""
+      "iconValue": ""
     },
     {
       "id": "pasta",
       "name": "پاستا",
       "iconType": "default",
-      "iconValue": "",
-      "image": ""
+      "iconValue": ""
     },
     {
       "id": "salad",
       "name": "سالاد",
       "iconType": "default",
-      "iconValue": "",
-      "image": ""
+      "iconValue": ""
     },
     {
       "id": "dessert",
       "name": "دسر",
       "iconType": "default",
-      "iconValue": "",
-      "image": ""
+      "iconValue": ""
     },
     {
       "id": "shake",
       "name": "شیک",
       "iconType": "fontawesome",
-      "iconValue": "fa-solid fa-share",
-      "image": ""
+      "iconValue": "fa-solid fa-share"
     },
     {
       "id": "tea",
       "name": "دمنوش",
       "iconType": "default",
-      "iconValue": "",
-      "image": ""
+      "iconValue": ""
     },
     {
       "id": "یک-دسته-بندی-جدید",
       "name": "یک دسته بندی جدید",
       "iconType": "fontawesome",
-      "iconValue": "fa-solid fa-battery-half",
-      "image": ""
+      "iconValue": "fa-solid fa-battery-half"
     }
   ],
   "addonGroups": {

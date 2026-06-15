@@ -88,11 +88,9 @@ function authHeaders() {
 // ========== دسته‌بندی‌ها ==========
 const catForm = document.getElementById("catForm");
 const catList = document.getElementById("catList");
-const catId = document.getElementById("catId");
 const catName = document.getElementById("catName");
 const catIconType = document.getElementById("catIconType");
 const catIconValue = document.getElementById("catIconValue");
-const catImage = document.getElementById("catImage");
 const iconPreview = document.getElementById("iconPreview");
 const openIconPickerBtn = document.getElementById("openIconPicker");
 const removeIconBtn = document.getElementById("removeIcon");
@@ -140,7 +138,7 @@ async function loadCategories() {
       return `<li>
       <span>${c.name} ${iconDisplay}</span>
       <div>
-        <button onclick="editCategory('${c.id}')" class="btn-outline">ویرایش</button>
+      <a href="./admin-edit-category.html?id=${c.id}" class="btn-outline" style="text-decoration:none;">ویرایش</a>
         <button onclick="deleteCategory('${c.id}')" class="btn-outline">حذف</button>
       </div>
     </li>`;
@@ -148,21 +146,7 @@ async function loadCategories() {
     .join("");
 }
 
-// ویرایش دسته‌بندی
-async function editCategory(id) {
-  const res = await fetch(`${apiBase}/categories`);
-  const cats = await res.json();
-  const cat = cats.find((c) => c.id === id);
-  if (!cat) return;
-  catId.value = cat.id;
-  catName.value = cat.name;
-  catIconType.value = cat.iconType || "default";
-  catIconValue.value = cat.iconValue || "";
-  updateIconPreview(cat.iconType, cat.iconValue);
-  // پاک کردن فایل سلکتور عکس
-  catImage.value = "";
-}
-
+// حذف دسته بندی
 async function deleteCategory(id) {
   if (!confirm("مطمئنی؟")) return;
   await fetch(`${apiBase}/categories/${id}`, {
@@ -180,11 +164,10 @@ catForm.addEventListener("submit", async (e) => {
   formData.append("name", catName.value);
   formData.append("iconType", catIconType.value);
   formData.append("iconValue", catIconValue.value);
-  if (catImage.files[0]) formData.append("image", catImage.files[0]);
+  // دیگر فیلد image وجود ندارد
 
-  const id = catId.value;
-  const url = id ? `${apiBase}/categories/${id}` : `${apiBase}/categories`;
-  const method = id ? "PUT" : "POST";
+  const url = `${apiBase}/categories`;
+  const method = "POST";
   try {
     const res = await fetch(url, {
       method,
@@ -192,7 +175,7 @@ catForm.addEventListener("submit", async (e) => {
       body: formData,
     });
     if (res.ok) {
-      notyf.success(id ? "دسته‌بندی بروز شد" : "دسته‌بندی اضافه شد");
+      notyf.success("دسته‌بندی اضافه شد");
       catForm.reset();
       updateIconPreview("default", "");
       loadCategories();
